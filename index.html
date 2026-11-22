@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MV Store Oficial — Maison & Lookbook Digital | Moema, SP</title>
+
+  <!-- Google Fonts: Cormorant Garamond (Display), Plus Jakarta Sans (UI) & JetBrains Mono (Payload/Dados) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ==========================================================================
+       SISTEMA DE TOKENS SEMÂNTICOS M3 (HCT CALIBRADO — WCAG AAA)
+       ========================================================================== */
+    :root {
+      --md-sys-color-surface: #FAF6F0;               /* Seda Alabastro Quente */
+      --md-sys-color-surface-container: #F2EBE0;     /* Linho Cru */
+      --md-sys-color-surface-container-high: #E9DFD1;/* Pergaminho */
+      --md-sys-color-on-surface: #1C1917;            /* Tinta Espresso Profunda */
+      --md-sys-color-on-surface-variant: #57504A;    /* Taupe Escuro */
+      --md-sys-color-primary: #6E2B32;               /* Bordeaux Veludo (MV Store) */
+      --md-sys-color-on-primary: #FAF6F0;
+      --md-sys-color-secondary: #9A7B4F;             /* Ouro Champagne (Vila das Joias) */
+      --md-sys-color-outline-variant: #D6CCC0;       /* Filete Editorial 1px */
+      --md-sys-color-whatsapp: #1E6F4A;              /* Verde Botânico Sofisticado */
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      overflow-x: hidden;
+    }
+
+    .font-editorial {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .font-ui {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .font-mono-tech {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* Superfícies e Filetes Editoriais */
+    .surface-base { background-color: var(--md-sys-color-surface); }
+    .surface-linen { background-color: var(--md-sys-color-surface-container); }
+    .surface-parchment { background-color: var(--md-sys-color-surface-container-high); }
+    .text-espresso { color: var(--md-sys-color-on-surface); }
+    .text-taupe { color: var(--md-sys-color-on-surface-variant); }
+    .text-bordeaux { color: var(--md-sys-color-primary); }
+    .bg-bordeaux { background-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+    .text-champagne { color: var(--md-sys-color-secondary); }
+    .border-hairline { border-color: var(--md-sys-color-outline-variant); }
+
+    /* Anotações do Modo Raio-X BGD (Argumentos de Venda) */
+    .xray-annotation {
+      display: none;
+      background-color: #1C1917;
+      color: #FAF6F0;
+      border-left: 3px solid var(--md-sys-color-secondary);
+      animation: fadeInScale 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    body.xray-active .xray-annotation {
+      display: block;
+    }
+
+    /* Transições Editoriais */
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .editorial-reveal {
+      animation: fadeInScale 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .lookbook-img-wrap img {
+      transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .lookbook-img-wrap:hover img {
+      transform: scale(1.035);
+    }
+
+    /* Esconder scrollbar mantendo scroll tátil */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-[#6E2B32] selection:text-[#FAF6F0]">
+
+  <!-- ========================================================================
+       FAIXA SUPERIOR INSTITUCIONAL & INTERRUPTOR RAIO-X BGD
+       ======================================================================== -->
+  <div class="surface-linen border-b border-hairline px-4 sm:px-8 py-2.5">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5">
+      <!-- Localização Real Corrigida -->
+      <div class="flex items-center gap-2 text-[11px] sm:text-xs text-taupe tracking-wide">
+        <span class="material-symbols-outlined text-[15px] text-bordeaux">storefront</span>
+        <span>Rua Canário, 1360 — Moema, SP</span>
+        <span class="text-[#D6CCC0]">•</span>
+        <span class="font-mono-tech text-[11px] text-espresso font-medium bg-white/70 px-2 py-0.5 rounded border border-hairline">
+          CEP 04521-005
+        </span>
+      </div>
+
+      <!-- Interruptor: Visão da Cliente vs Raio-X BGD -->
+      <div class="flex items-center gap-2 bg-white/80 p-1 rounded-full border border-hairline shadow-2xs" role="group" aria-label="Alternar modo de visualização">
+        <button
+          id="btn-mode-client"
+          onclick="setViewMode('client')"
+          class="px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wide transition cursor-pointer bg-bordeaux"
+        >
+          Visão da Cliente
+        </button>
+        <button
+          id="btn-mode-xray"
+          onclick="setViewMode('xray')"
+          class="px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wide transition cursor-pointer text-taupe hover:text-espresso flex items-center gap-1"
+        >
+          <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+          Raio-X BGD (Argumentos)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anotação Raio-X #1: Cabeçalho & SEO Local -->
+  <div class="xray-annotation max-w-7xl mx-auto w-[calc(100%-2rem)] mt-3 p-3.5 rounded-lg text-xs leading-relaxed">
+    <div class="flex items-start gap-2.5">
+      <span class="font-mono-tech text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-[#9A7B4F] text-[#1C1917] font-semibold shrink-0">DIAGNÓSTICO #01 • SEO & CONVERSÃO</span>
+      <p>
+        <strong>Correção imediata de cadastro:</strong> Na bio atual consta o CEP <code class="font-mono-tech text-[#E9DFD1]">04849-506</code> (Grajaú), prejudicando entregas e buscas locais em Moema. Aqui já exibimos o CEP real <code class="font-mono-tech text-[#E9DFD1]">04521-005</code> e substituímos os telefones em texto puro por um link direto clicável na bio.
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MASTHEAD EDITORIAL (CABEÇALHO PRINCIPAL)
+       ======================================================================== -->
+  <header class="sticky top-0 z-30 bg-[#FAF6F0]/95 backdrop-blur-md border-b border-hairline">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between gap-4">
+      <!-- Monograma Circular MV + Título -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 sm:w-13 sm:h-13 rounded-full border border-[#6E2B32] p-0.5 flex items-center justify-center shrink-0 transition group-hover:border-[#9A7B4F]">
+          <div class="w-full h-full rounded-full border border-[#9A7B4F]/60 bg-white flex flex-col items-center justify-center">
+            <span class="font-editorial text-xl font-semibold tracking-tighter text-bordeaux leading-none">
+              M<span class="text-champagne italic font-normal">/</span>V
+            </span>
+          </div>
+        </div>
+        <div>
+          <span class="block font-editorial text-xl sm:text-2xl font-semibold tracking-[0.08em] text-espresso uppercase leading-none">
+            MV Store Oficial
+          </span>
+          <span class="block text-[10px] sm:text-[11px] tracking-[0.26em] text-taupe uppercase mt-1.5 font-medium">
+            Moema • São Paulo
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegação Editorial Discreta (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.18em] text-taupe font-medium">
+        <a href="#lookbook" class="hover:text-bordeaux transition">Lookbook Cápsula</a>
+        <a href="#vila-das-joias" class="hover:text-bordeaux transition">Curadoria Vila das Joias</a>
+        <a href="#showroom" class="hover:text-bordeaux transition">Showroom Moema</a>
+      </nav>
+
+      <!-- Botão Sacola Concierge -->
+      <button
+        onclick="openBagDrawer()"
+        aria-label="Abrir Sacola Concierge"
+        class="flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-full border border-espresso/20 bg-white hover:border-[#6E2B32] text-espresso transition cursor-pointer active:scale-[0.98]"
+      >
+        <span class="material-symbols-outlined text-[19px] text-bordeaux">shopping_bag</span>
+        <span class="text-xs font-semibold tracking-wider uppercase hidden sm:inline">Sacola</span>
+        <span id="bag-counter" class="font-mono-tech text-xs font-semibold bg-bordeaux w-5 h-5 rounded-full flex items-center justify-center">
+          0
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO ASSIMÉTRICO (LAYOUT EDITORIAL DE REVISTA 7 / 5 COLUNAS)
+       ======================================================================== -->
+  <section class="max-w-7xl mx-auto w-full px-4 sm:px-8 pt-8 sm:pt-14 pb-12 sm:pb-20 border-b border-hairline">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+
+      <!-- Coluna Esquerda (7 cols): Narrativa Editorial -->
+      <div class="lg:col-span-7 editorial-reveal space-y-6">
+        <div class="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.24em] text-bordeaux font-semibold">
+          <span class="w-8 h-[1px] bg-[#6E2B32]"></span>
+          Curadoria Exclusiva • Pronta Entrega Brasil
+        </div>
+
+        <h1 class="font-editorial text-4xl sm:text-6xl lg:text-[64px] font-medium text-espresso leading-[1.05] tracking-[-0.01em]">
+          Do Reels direto para o seu closet, <span class="italic font-normal text-bordeaux">sem espera no Direct.</span>
+        </h1>
+
+        <p class="text-base sm:text-lg text-taupe max-w-2xl leading-relaxed font-normal">
+          Moda feminina atemporal selecionada pessoalmente em nosso showroom em Moema. Escolha sua peça, defina o tamanho ideal e finalize sua reserva com atendimento consultivo imediato — com envio rápido para qualquer estado do Brasil.
+        </p>
+
+        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+          <a
+            href="#lookbook"
+            class="px-7 py-4 rounded-full bg-bordeaux hover:bg-[#582026] text-xs uppercase tracking-[0.18em] font-semibold transition flex items-center justify-center gap-2.5 shadow-sm"
+          >
+            <span>Explorar Coleção Cápsula</span>
+            <span class="material-symbols-outlined text-[17px]">north_east</span>
+          </a>
+
+          <a
+            href="https://wa.me/5511943784920?text=Ol%C3%A1%20MV%20Store%20Oficial!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20exclusivo%20no%20Showroom%20de%20Moema."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-7 py-4 rounded-full border border-espresso/25 hover:border-[#6E2B32] bg-transparent text-espresso text-xs uppercase tracking-[0.18em] font-semibold transition flex items-center justify-center gap-2"
+          >
+            <span class="material-symbols-outlined text-[17px] text-champagne">storefront</span>
+            <span>Agendar Showroom Moema</span>
+          </a>
+        </div>
+
+        <!-- Métricas de Confiança Editorial -->
+        <div class="pt-6 border-t border-hairline grid grid-cols-3 gap-4 max-w-lg">
+          <div>
+            <span class="block font-editorial text-2xl sm:text-3xl font-semibold text-espresso">8+ Anos</span>
+            <span class="text-[11px] uppercase tracking-wider text-taupe">Tradição em Moema</span>
+          </div>
+          <div>
+            <span class="block font-editorial text-2xl sm:text-3xl font-semibold text-espresso">Brasil</span>
+            <span class="text-[11px] uppercase tracking-wider text-taupe">Envio Nacional Seguro</span>
+          </div>
+          <div>
+            <span class="block font-editorial text-2xl sm:text-3xl font-semibold text-espresso">1-Clique</span>
+            <span class="text-[11px] uppercase tracking-wider text-taupe">Concierge WhatsApp</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna Direita (5 cols): Composição Fotográfica em Camadas Assimétricas -->
+      <div class="lg:col-span-5 relative editorial-reveal">
+        <!-- Moldura Principal Vertical -->
+        <div class="lookbook-img-wrap relative rounded-t-[140px] rounded-b-2xl overflow-hidden border border-hairline surface-linen aspect-[3/4] max-w-md mx-auto lg:ml-auto">
+          <img
+            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85"
+            alt="Vestido editorial MV Store Moema"
+            class="w-full h-full object-cover object-center"
+            onerror="this.style.display='none'"
+          >
+          <!-- Etiqueta Flutuante Editorial -->
+          <div class="absolute top-5 right-5 bg-[#FAF6F0]/95 backdrop-blur-sm border border-hairline px-3.5 py-2 rounded-full flex items-center gap-2 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-[#6E2B32] animate-pulse"></span>
+            <span class="text-[11px] font-semibold tracking-wider uppercase text-espresso">Destaque dos Reels • Envio Imediato</span>
+          </div>
+        </div>
+
+        <!-- Cartão Sobreposto Assimétrico (Detalhe de Curadoria) -->
+        <div class="hidden sm:block absolute -bottom-6 -left-4 lg:-left-10 bg-white border border-hairline p-4 rounded-xl max-w-[230px] shadow-sm">
+          <span class="font-mono-tech text-[10px] uppercase tracking-widest text-champagne font-semibold block">LOOK CAPA • REF 01</span>
+          <p class="font-editorial text-lg font-semibold text-espresso leading-snug mt-1">
+            Renda Guipir &amp; Alfaiataria Leve
+          </p>
+          <p class="text-[11px] text-taupe mt-1">
+            Peças apresentadas em vídeo com caimento real validado.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anotação Raio-X #2: Hero & Funil de Reels -->
+    <div class="xray-annotation mt-8 p-4 rounded-lg text-xs leading-relaxed">
+      <div class="flex items-start gap-2.5">
+        <span class="font-mono-tech text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-[#9A7B4F] text-[#1C1917] font-semibold shrink-0">DIAGNÓSTICO #02 • CAPTURA DE DESEJO</span>
+        <p>
+          <strong>Transformando 1.326 posts em vendas escaláveis:</strong> A dona da MV Store já domina o vídeo (Reels). O gargalo é que, após assistir, a seguidora de outro estado não tem onde clicar. Esta dobra conecta diretamente o vídeo à escolha de tamanho sem atrito.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       VITRINE LOOKBOOK ASSIMÉTRICA
+       ======================================================================== -->
+  <main id="lookbook" class="max-w-7xl mx-auto w-full px-4 sm:px-8 py-14 sm:py-20">
+
+    <!-- Cabeçalho da Coleção + Filtro Editorial Minimalista -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-hairline">
+      <div>
+        <span class="text-[11px] uppercase tracking-[0.24em] text-champagne font-semibold block mb-2">
+          Edição Primavera / Verão Moema
+        </span>
+        <h2 class="font-editorial text-3xl sm:text-5xl font-medium text-espresso">
+          Lookbook Interativo
+        </h2>
+      </div>
+
+      <!-- Filtros por Categoria -->
+      <div id="category-filters" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" role="tablist">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         PEÇA CAPA EM DESTAQUE (LAYOUT HORIZONTAL ASSIMÉTRICO 6 / 6)
+         ====================================================================== -->
+    <section id="featured-piece-section" class="mt-12 pb-16 border-b border-hairline">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center surface-linen rounded-2xl p-5 sm:p-10 border border-hairline">
+        <!-- Imagem Capa (6 cols) -->
+        <div class="lg:col-span-6">
+          <div class="lookbook-img-wrap relative rounded-xl overflow-hidden aspect-[4/5] bg-white border border-hairline">
+            <img
+              src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85"
+              alt="Vestido Midi Renda Guipir Off-White"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'"
+            >
+            <div class="absolute bottom-4 left-4 bg-[#1C1917]/90 text-[#FAF6F0] px-3 py-1.5 rounded text-[11px] font-mono-tech tracking-wider">
+              PEÇA CAPA • VISTO NO REELS
+            </div>
+          </div>
+        </div>
+
+        <!-- Ficha Editorial & Seletor (6 cols) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-mono-tech text-xs text-taupe uppercase tracking-widest">REF: MV-GUIPIR-01</span>
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-[#1E6F4A] bg-white px-3 py-1 rounded-full border border-hairline">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#1E6F4A]"></span>
+              Pronta entrega (4 unidades restantes)
+            </span>
+          </div>
+
+          <div>
+            <h3 class="font-editorial text-3xl sm:text-5xl font-medium text-espresso leading-tight">
+              Vestido Midi Renda Guipir Off-White
+            </h3>
+            <p class="text-sm sm:text-base text-taupe mt-3 leading-relaxed">
+              Modelagem midi estruturada com trabalho artesanal em renda guipir vazada, forro interno em crepe fluido e caimento pensado para valorizar a silhueta com leveza e sofisticação.
+            </p>
+          </div>
+
+          <div class="pt-2 border-t border-hairline flex items-baseline justify-between">
+            <div>
+              <span class="font-editorial text-3xl sm:text-4xl font-semibold text-espresso">R$ 489,00</span>
+              <span class="block text-xs text-taupe mt-0.5">ou 6x de R$ 81,50 sem juros no cartão</span>
+            </div>
+            <span class="font-mono-tech text-xs font-semibold text-bordeaux bg-white px-3 py-1.5 rounded border border-hairline">
+              R$ 464,55 no PIX (-5%)
+            </span>
+          </div>
+
+          <!-- Seletor Interativo de Tamanho -->
+          <div>
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="text-xs uppercase tracking-[0.16em] font-semibold text-espresso">Selecione o Tamanho:</span>
+              <span class="text-xs text-taupe italic">Modelagem fiel ao padrão brasileiro</span>
+            </div>
+            <div id="featured-size-selector" class="flex items-center gap-2.5">
+              <!-- Botões P, M, G, GG renderizados via JS -->
+            </div>
+          </div>
+
+          <!-- CTA Principal -->
+          <div class="pt-2 flex flex-col sm:flex-row gap-3">
+            <button
+              onclick="addFeaturedToBag()"
+              class="flex-1 py-4 px-6 rounded-full bg-bordeaux hover:bg-[#582026] text-xs uppercase tracking-[0.18em] font-semibold transition flex items-center justify-center gap-2.5 cursor-pointer active:scale-[0.99]"
+            >
+              <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+              <span>Adicionar à Sacola</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         COMPOSIÇÃO ESCALONADA (2 COLUNAS DESNIVELADAS COM MARGENS EDITORIAIS)
+         ====================================================================== -->
+    <section class="mt-16">
+      <div class="flex items-center justify-between mb-10">
+        <span class="font-mono-tech text-xs uppercase tracking-widest text-taupe">
+          SELEÇÃO CURADA • LOOKS COMPLETOS
+        </span>
+        <span id="visible-count-label" class="text-xs text-taupe">
+          Exibindo 4 peças editoriais
+        </span>
+      </div>
+
+      <!-- Grid Assimétrico Escalonado (Coluna direita deslocada para baixo no desktop) -->
+      <div id="staggered-catalog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 items-start">
+        <!-- Cards editoriais renderizados via JS -->
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         FAIXA EDITORIAL: COMPLETE O LOOK — CURADORIA VILA DAS JOIAS
+         ====================================================================== -->
+    <section id="vila-das-joias" class="mt-24 surface-parchment rounded-2xl border border-hairline p-6 sm:p-12 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Narrativa da Parceria Real -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-champagne font-semibold">
+            <span class="material-symbols-outlined text-[17px]">diamond</span>
+            <span>Sinergia Showroom Moema • Rua Canário, 1360</span>
+          </div>
+
+          <h3 class="font-editorial text-3xl sm:text-4xl font-medium text-espresso leading-tight">
+            Complete o Look — <span class="italic text-bordeaux">Curadoria Vila das Joias</span>
+          </h3>
+
+          <p class="text-sm sm:text-base text-taupe leading-relaxed max-w-xl">
+            No mesmo endereço em Moema, a MV Store e a <strong>Vila das Joias</strong> (por Carla Bittar) unem vestuário e alta joalheria para você receber a produção completa em um único envio nacional.
+          </p>
+
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <div class="bg-white/90 border border-hairline rounded-xl p-4 flex-1 min-w-[260px]">
+              <div class="flex items-center justify-between">
+                <span class="font-mono-tech text-[10px] uppercase tracking-widest text-champagne font-semibold">CROSS-SELL EXCLUSIVO</span>
+                <span class="font-mono-tech text-xs font-semibold text-espresso">R$ 360,00</span>
+              </div>
+              <h4 class="font-editorial text-xl font-semibold text-espresso mt-1">
+                Brinco Gota Esmeralda &amp; Ouro 18k
+              </h4>
+              <p class="text-xs text-taupe mt-1">
+                Cravação artesanal • Parceria Vila das Joias
+              </p>
+              <button
+                onclick="addJewelryCrossSell()"
+                class="mt-3.5 w-full py-2.5 px-4 rounded-full border border-[#6E2B32] text-bordeaux hover:bg-[#6E2B32] hover:text-[#FAF6F0] text-xs uppercase tracking-[0.15em] font-semibold transition flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span class="material-symbols-outlined text-[16px]">diamond</span>
+                <span>Adicionar Joia ao Pedido (+1 Clique)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagem da Joia -->
+        <div class="lg:col-span-5">
+          <div class="lookbook-img-wrap rounded-xl overflow-hidden border border-hairline aspect-[4/3] bg-white">
+            <img
+              src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=850&q=85"
+              alt="Brinco Gota Esmeralda e Ouro 18k Parceria Vila das Joias"
+              class="w-full h-full object-cover"
+              onerror="this.style.display='none'"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Anotação Raio-X #3: Sinergia Vila das Joias -->
+      <div class="xray-annotation mt-8 p-4 rounded-lg text-xs leading-relaxed">
+        <div class="flex items-start gap-2.5">
+          <span class="font-mono-tech text-[10px] uppercase tracking-widest px-2 py-0.5 rounded bg-[#9A7B4F] text-[#1C1917] font-semibold shrink-0">DIAGNÓSTICO #03 • AUMENTO DE TICKET MÉDIO</span>
+          <p>
+            <strong>Aproveitamento do ecossistema físico no digital:</strong> A MV Store divide espaço em Moema com a <em>Vila das Joias</em> (que já possui e-commerce estruturado). Inserir uma oferta de cross-sell de 1 clique no funil eleva o ticket médio por envio nacional sem custo adicional de aquisição.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       RODAPÉ INSTITUCIONAL & ASSINATURA DE ENGENHARIA
+       ======================================================================== -->
+  <footer id="showroom" class="mt-auto surface-linen border-t border-hairline">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-hairline">
+        <!-- Coluna Marca -->
+        <div class="md:col-span-5 space-y-3">
+          <span class="font-editorial text-2xl font-semibold tracking-wider text-espresso uppercase block">
+            MV Store Oficial
+          </span>
+          <p class="text-xs sm:text-sm text-taupe leading-relaxed max-w-sm">
+            Curadoria de moda feminina contemporânea em Moema. Atendimento personalizado presencial e envios segurados para todo o território nacional.
+          </p>
+        </div>
+
+        <!-- Coluna Endereço Real -->
+        <div class="md:col-span-4 space-y-2 text-xs sm:text-sm text-taupe">
+          <span class="block text-[11px] uppercase tracking-[0.2em] text-espresso font-semibold mb-2">
+            Showroom Moema
+          </span>
+          <p>Rua Canário, 1360 — Moema</p>
+          <p>São Paulo — SP • <span class="font-mono-tech text-espresso font-medium">CEP 04521-005</span></p>
+          <p class="text-xs text-champagne font-medium pt-1">Em parceria com Vila das Joias</p>
+        </div>
+
+        <!-- Coluna Contatos Diretos -->
+        <div class="md:col-span-3 space-y-2 text-xs sm:text-sm text-taupe">
+          <span class="block text-[11px] uppercase tracking-[0.2em] text-espresso font-semibold mb-2">
+            Concierge &amp; Vendas
+          </span>
+          <p>
+            WhatsApp: <a href="https://wa.me/5511943784920" target="_blank" rel="noopener noreferrer" class="font-mono-tech text-bordeaux font-semibold hover:underline">(11) 94378-4920</a>
+          </p>
+          <p>
+            Telefone Fixo: <span class="font-mono-tech text-espresso">(11) 2305-4227</span>
+          </p>
+          <p class="text-xs pt-1">Instagram: <span class="font-medium text-espresso">@mv_store_oficial</span></p>
+        </div>
+      </div>
+
+      <!-- Assinatura Técnica BRafaelS | BrasilGuard Sistemas -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-taupe">
+        <span>© MV Modas Ltda • Todos os direitos reservados</span>
+        <span class="text-center sm:text-right">
+          Protótipo de Vitrine Interativa &amp; Automação Comercial desenvolvido por <strong class="text-espresso font-semibold">BRafaelS | BrasilGuard Sistemas</strong>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       TOAST EDITORIAL DE FEEDBACK
+       ======================================================================== -->
+  <div id="editorial-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
+    <div class="bg-[#1C1917] text-[#FAF6F0] px-5 py-3 rounded-full border border-[#9A7B4F]/50 shadow-lg flex items-center gap-2.5 text-xs font-medium whitespace-nowrap">
+      <span class="material-symbols-outlined text-[16px] text-[#9A7B4F]">check</span>
+      <span id="editorial-toast-text">Peça adicionada à sacola</span>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       GAVETA LATERAL INTERATIVA (SACOLA & CONCIERGE WHATSAPP AUTOMATIZADO)
+       ======================================================================== -->
+  <div id="bag-backdrop" onclick="closeBagDrawer()" class="fixed inset-0 bg-[#1C1917]/55 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <aside id="bag-drawer" aria-label="Sacola e Concierge WhatsApp" class="fixed top-0 right-0 h-full w-full sm:w-[460px] surface-base z-50 border-l border-hairline shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Cabeçalho da Gaveta -->
+    <div class="px-6 py-5 border-b border-hairline bg-white flex items-center justify-between">
+      <div>
+        <span class="font-mono-tech text-[10px] uppercase tracking-widest text-champagne font-semibold block">CONCIERGE DIGITAL</span>
+        <h3 class="font-editorial text-2xl font-semibold text-espresso">Sua Sacola MV Store</h3>
+      </div>
+      <button onclick="closeBagDrawer()" aria-label="Fechar sacola" class="w-9 h-9 rounded-full border border-hairline hover:bg-[#F2EBE0] flex items-center justify-center text-espresso transition cursor-pointer">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+
+    <!-- Corpo Rolável -->
+    <div class="flex-1 overflow-y-auto p-6 space-y-6">
+      <!-- Lista de Peças na Sacola -->
+      <div id="bag-items-list" class="space-y-3.5">
+        <!-- Renderizado via JS -->
+      </div>
+
+      <!-- Configuração de Entrega, Pagamento & Payload SDR -->
+      <div id="bag-checkout-controls" class="hidden space-y-5 pt-2">
+        <!-- Modalidade de Entrega -->
+        <div class="bg-white p-4 rounded-xl border border-hairline space-y-3">
+          <span class="block text-[11px] uppercase tracking-[0.18em] font-semibold text-espresso">
+            1. Modalidade de Recebimento
+          </span>
+          <div class="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              id="btn-mode-national"
+              onclick="setShippingOption('national')"
+              class="py-2.5 px-3 rounded-lg border text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer bg-bordeaux border-[#6E2B32]"
+            >
+              <span class="material-symbols-outlined text-[16px]">local_shipping</span>
+              <span>Envio Brasil</span>
+            </button>
+            <button
+              type="button"
+              id="btn-mode-pickup"
+              onclick="setShippingOption('pickup')"
+              class="py-2.5 px-3 rounded-lg border text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer surface-base border-hairline text-taupe"
+            >
+              <span class="material-symbols-outlined text-[16px]">storefront</span>
+              <span>Showroom Moema</span>
+            </button>
+          </div>
+
+          <!-- Campo de CEP para Cálculo Automático -->
+          <div id="national-cep-block" class="pt-1 space-y-2">
+            <label for="input-cep" class="block text-xs text-taupe font-medium">Informe seu CEP para estimativa expressa:</label>
+            <div class="flex gap-2">
+              <input
+                type="text"
+                id="input-cep"
+                maxlength="9"
+                oninput="handleCepInput(this)"
+                placeholder="00000-000"
+                class="font-mono-tech flex-1 px-3.5 py-2 rounded-lg surface-base border border-hairline text-xs text-espresso focus:outline-none focus:border-[#6E2B32]"
+              >
+              <button
+                type="button"
+                onclick="calculateShipping()"
+                class="px-4 py-2 rounded-lg surface-linen hover:surface-parchment border border-hairline text-xs font-semibold text-espresso transition cursor-pointer"
+              >
+                Calcular
+              </button>
+            </div>
+            <p id="shipping-estimate-result" class="text-[11px] text-[#1E6F4A] font-medium">
+              Frete Expresso Segurado: R$ 28,90 (2 a 4 dias úteis)
+            </p>
+          </div>
+
+          <!-- Aviso Retirada Showroom -->
+          <div id="pickup-address-block" class="hidden p-3 rounded-lg surface-linen border border-hairline text-xs text-espresso leading-relaxed">
+            <strong>Retirada VIP sem custo:</strong><br>
+            Rua Canário, 1360 — Moema, SP (CEP 04521-005). Peças separadas com hora marcada.
+          </div>
+        </div>
+
+        <!-- Forma de Pagamento -->
+        <div class="bg-white p-4 rounded-xl border border-hairline space-y-2.5">
+          <span class="block text-[11px] uppercase tracking-[0.18em] font-semibold text-espresso">
+            2. Condição de Pagamento
+          </span>
+          <div class="grid grid-cols-1 gap-2">
+            <label class="flex items-center justify-between p-2.5 rounded-lg border border-hairline surface-base cursor-pointer">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="payment_opt" value="PIX (5% de desconto)" checked onchange="updatePayloadPreview()" class="accent-[#6E2B32]">
+                <span class="text-xs font-semibold text-espresso">PIX à Vista</span>
+              </div>
+              <span class="font-mono-tech text-[11px] font-semibold text-bordeaux">5% OFF</span>
+            </label>
+            <label class="flex items-center justify-between p-2.5 rounded-lg border border-hairline surface-base cursor-pointer">
+              <div class="flex items-center gap-2">
+                <input type="radio" name="payment_opt" value="Cartão de Crédito até 6x sem juros" onchange="updatePayloadPreview()" class="accent-[#6E2B32]">
+                <span class="text-xs font-semibold text-espresso">Cartão de Crédito (Link Seguro)</span>
+              </div>
+              <span class="font-mono-tech text-[11px] text-taupe">até 6x s/ juros</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pré-visualização ao Vivo da Mensagem Estruturada (Payload SDR) -->
+        <div class="bg-white p-4 rounded-xl border border-hairline space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="font-mono-tech text-[10px] uppercase tracking-widest text-bordeaux font-semibold">
+              PAYLOAD SDR • MENSAGEM WHATSAPP
+            </span>
+            <button
+              type="button"
+              onclick="copyPayloadToClipboard()"
+              class="text-[11px] font-semibold text-champagne hover:underline cursor-pointer"
+            >
+              Copiar Resumo
+            </button>
+          </div>
+          <pre id="sdr-payload-box" class="font-mono-tech text-[11px] leading-relaxed p-3.5 rounded-lg surface-linen border border-hairline text-espresso whitespace-pre-wrap overflow-x-auto"></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé Fixo com Resumo Financeiro & Disparo Real WhatsApp -->
+    <div id="bag-footer" class="hidden p-6 bg-white border-t border-hairline space-y-3.5">
+      <div class="space-y-1 text-xs">
+        <div class="flex justify-between text-taupe">
+          <span>Subtotal das peças</span>
+          <span id="summary-subtotal" class="font-mono-tech">R$ 0,00</span>
+        </div>
+        <div class="flex justify-between text-taupe">
+          <span>Entrega / Frete</span>
+          <span id="summary-shipping" class="font-mono-tech">R$ 28,90</span>
+        </div>
+        <div class="flex justify-between text-sm font-semibold text-espresso pt-1.5 border-t border-hairline">
+          <span>Total Final</span>
+          <span id="summary-total" class="font-mono-tech text-bordeaux">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onclick="sendOrderToWhatsApp()"
+        style="background-color: var(--md-sys-color-whatsapp); color: #FAF6F0;"
+        class="w-full py-4 px-5 rounded-full hover:opacity-95 text-xs uppercase tracking-[0.16em] font-semibold transition flex items-center justify-center gap-2.5 shadow-sm cursor-pointer active:scale-[0.99]"
+      >
+        <span class="material-symbols-outlined text-[18px]">chat</span>
+        <span>Enviar Pedido no WhatsApp</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MOTOR DE INTERATIVIDADE & PAYLOAD AUTOMATIZADO (VANILLA JS)
+       ======================================================================== -->
+  <script>
+    // Dados da Peça Capa
+    const FEATURED_PRODUCT = {
+      id: 'mv-guipir-01',
+      code: 'MV-GUIPIR-01',
+      name: 'Vestido Midi Renda Guipir Off-White',
+      category: 'Vestidos & Fluidez',
+      price: 489.00,
+      sizes: ['P', 'M', 'G', 'GG'],
+      image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85'
+    };
+
+    // Catálogo Editorial Escalonado
+    const LOOKBOOK_ITEMS = [
+      {
+        id: 'mv-linho-02',
+        code: 'MV-LINHO-02',
+        name: 'Conjunto Alfaiataria Linho Champagne',
+        category: 'Alfaiataria & Conjuntos',
+        price: 540.00,
+        sizes: ['P', 'M', 'G', 'GG'],
+        editorialNote: 'Corte estruturado em linho misto nobre com caimento fluido para compromissos diurnos e jantares.',
+        image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=800&q=85',
+        aspectClass: 'aspect-[3/4]'
+      },
+      {
+        id: 'mv-floral-03',
+        code: 'MV-FLORAL-03',
+        name: 'Vestido Seda Floral Resort Moema',
+        category: 'Vestidos & Fluidez',
+        price: 459.00,
+        sizes: ['P', 'M', 'G', 'GG'],
+        editorialNote: 'Estampa exclusiva de temporada sobre base acetinada leve. Um dos modelos mais pedidos nos Reels.',
+        image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=85',
+        aspectClass: 'aspect-[4/5]'
+      },
+      {
+        id: 'mv-sandal-04',
+        code: 'MV-SANDAL-04',
+        name: 'Sandália Tiras Minimalista Nude & Cristal',
+        category: 'Calçados & Resort',
+        price: 329.00,
+        sizes: ['35', '36', '37', '38', '39'],
+        editorialNote: 'Salto fino equilibrado com tiras delicadas e brilho sutil para alongar a silhueta com conforto.',
+        image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85',
+        aspectClass: 'aspect-[4/5]'
+      },
+      {
+        id: 'mv-blazer-05',
+        code: 'MV-BLAZER-05',
+        name: 'Blazer Estruturado Bordô Atelier',
+        category: 'Alfaiataria & Conjuntos',
+        price: 580.00,
+        sizes: ['P', 'M', 'G', 'GG'],
+        editorialNote: 'O tom assinatura da maison em alfaiataria impecável com ombreiras leves e botões forrados.',
+        image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=85',
+        aspectClass: 'aspect-[3/4]'
+      }
+    ];
+
+    // Item de Sinergia Vila das Joias
+    const JEWELRY_ITEM = {
+      id: 'vdj-esmeralda-06',
+      code: 'VDJ-ESM-06',
+      name: 'Brinco Gota Esmeralda & Ouro 18k (Vila das Joias)',
+      category: 'Sinergia Vila das Joias',
+      price: 360.00,
+      sizes: ['Único'],
+      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=850&q=85'
+    };
+
+    const CATEGORIES = [
+      'Todas as Peças',
+      'Vestidos & Fluidez',
+      'Alfaiataria & Conjuntos',
+      'Calçados & Resort',
+      'Sinergia Vila das Joias'
+    ];
+
+    // Estado Global
+    let activeCategory = 'Todas as Peças';
+    let featuredSelectedSize = 'M';
+    let itemSelectedSizes = {};
+    let bag = []; // [{ id, code, name, price, size, qty, image }]
+    let shippingMode = 'national'; // 'national' | 'pickup'
+    let shippingCost = 28.90;
+
+    // Inicializa tamanhos padrão
+    LOOKBOOK_ITEMS.forEach(item => {
+      itemSelectedSizes[item.id] = item.sizes.includes('M') ? 'M' : item.sizes[0];
+    });
+
+    function formatBRL(value) {
+      return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    // Alternar Modo: Visão da Cliente vs Raio-X BGD
+    function setViewMode(mode) {
+      const btnClient = document.getElementById('btn-mode-client');
+      const btnXray = document.getElementById('btn-mode-xray');
+
+      if (mode === 'xray') {
+        document.body.classList.add('xray-active');
+        btnXray.className = 'px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wide transition cursor-pointer bg-bordeaux flex items-center gap-1';
+        btnClient.className = 'px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wide transition cursor-pointer text-taupe hover:text-espresso';
+        showToast('Modo Raio-X BGD ativado: argumentos de venda visíveis');
+      } else {
+        document.body.classList.remove('xray-active');
+        btnClient.className = 'px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wide transition cursor-pointer bg-bordeaux';
+        btnXray.className = 'px-3.5 py-1 rounded-full text-[11px] font-semibold tracking-wide transition cursor-pointer text-taupe hover:text-espresso flex items-center gap-1';
+      }
+    }
+
+    // Renderiza Filtros Editoriais
+    function renderCategoryFilters() {
+      const container = document.getElementById('category-filters');
+      container.innerHTML = CATEGORIES.map(cat => {
+        const isActive = activeCategory === cat;
+        return `
+          <button
+            onclick="selectCategory('${cat}')"
+            class="px-4 py-2 rounded-full text-xs tracking-wide font-medium whitespace-nowrap transition cursor-pointer ${
+              isActive
+                ? 'bg-bordeaux font-semibold'
+                : 'bg-white border border-hairline text-taupe hover:border-[#6E2B32] hover:text-espresso'
+            }"
+          >
+            ${cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCategory(cat) {
+      activeCategory = cat;
+      renderCategoryFilters();
+
+      if (cat === 'Sinergia Vila das Joias') {
+        document.getElementById('vila-das-joias').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const featuredSection = document.getElementById('featured-piece-section');
+      if (cat === 'Todas as Peças' || cat === FEATURED_PRODUCT.category) {
+        featuredSection.classList.remove('hidden');
+      } else {
+        featuredSection.classList.add('hidden');
+      }
+
+      renderStaggeredCatalog();
+    }
+
+    // Seletor de Tamanho da Peça Capa
+    function renderFeaturedSizes() {
+      const container = document.getElementById('featured-size-selector');
+      container.innerHTML = FEATURED_PRODUCT.sizes.map(size => {
+        const active = featuredSelectedSize === size;
+        return `
+          <button
+            type="button"
+            onclick="selectFeaturedSize('${size}')"
+            class="w-11 h-11 rounded-full font-mono-tech text-xs font-semibold transition cursor-pointer ${
+              active
+                ? 'bg-bordeaux shadow-xs'
+                : 'bg-white border border-hairline text-espresso hover:border-[#6E2B32]'
+            }"
+          >
+            ${size}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectFeaturedSize(size) {
+      featuredSelectedSize = size;
+      renderFeaturedSizes();
+    }
+
+    function addFeaturedToBag() {
+      addItemToBag({
+        id: FEATURED_PRODUCT.id,
+        code: FEATURED_PRODUCT.code,
+        name: FEATURED_PRODUCT.name,
+        price: FEATURED_PRODUCT.price,
+        size: featuredSelectedSize,
+        image: FEATURED_PRODUCT.image
+      });
+    }
+
+    // Renderiza Grid Assimétrico Escalonado
+    function renderStaggeredCatalog() {
+      const grid = document.getElementById('staggered-catalog-grid');
+      const countLabel = document.getElementById('visible-count-label');
+
+      const filtered = LOOKBOOK_ITEMS.filter(item =>
+        activeCategory === 'Todas as Peças' || item.category === activeCategory
+      );
+
+      countLabel.textContent = `Exibindo ${filtered.length} ${filtered.length === 1 ? 'peça editorial' : 'peças editoriais'}`;
+
+      grid.innerHTML = filtered.map((item, idx) => {
+        const currentSize = itemSelectedSizes[item.id];
+        // Deslocamento vertical editorial nas colunas pares em telas md+
+        const staggerOffset = idx % 2 === 1 ? 'md:mt-16' : '';
+
+        return `
+          <article class="${staggerOffset} group space-y-4 editorial-reveal">
+            <!-- Fotografia Editorial -->
+            <div class="lookbook-img-wrap relative rounded-2xl overflow-hidden border border-hairline surface-linen ${item.aspectClass}">
+              <img
+                src="${item.image}"
+                alt="${item.name}"
+                loading="lazy"
+                class="w-full h-full object-cover object-center"
+                onerror="this.style.display='none'"
+              >
+              <span class="absolute top-3.5 left-3.5 bg-[#FAF6F0]/90 backdrop-blur-xs border border-hairline px-3 py-1 rounded-full font-mono-tech text-[10px] tracking-wider text-espresso">
+                ${item.code}
+              </span>
+            </div>
+
+            <!-- Metadados & Controles -->
+            <div class="space-y-3 pt-1">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="text-[10px] uppercase tracking-[0.2em] text-champagne font-semibold block">
+                    ${item.category}
+                  </span>
+                  <h3 class="font-editorial text-2xl sm:text-3xl font-medium text-espresso mt-0.5 leading-snug">
+                    ${item.name}
+                  </h3>
+                </div>
+                <span class="font-editorial text-2xl font-semibold text-espresso shrink-0">
+                  ${formatBRL(item.price)}
+                </span>
+              </div>
+
+              <p class="text-xs sm:text-sm text-taupe leading-relaxed">
+                ${item.editorialNote}
+              </p>
+
+              <!-- Linha de Tamanhos + Ação -->
+              <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-hairline">
+                <div class="flex items-center gap-1.5">
+                  ${item.sizes.map(sz => `
+                    <button
+                      type="button"
+                      onclick="selectItemSize('${item.id}', '${sz}')"
+                      class="w-8 h-8 rounded-full font-mono-tech text-[11px] font-semibold transition cursor-pointer ${
+                        currentSize === sz
+                          ? 'bg-[#1C1917] text-[#FAF6F0]'
+                          : 'bg-white border border-hairline text-taupe hover:border-[#6E2B32]'
+                      }"
+                    >
+                      ${sz}
+                    </button>
+                  `).join('')}
+                </div>
+
+                <button
+                  type="button"
+                  onclick="addCatalogItemToBag('${item.id}')"
+                  class="px-5 py-2.5 rounded-full border border-[#6E2B32] text-bordeaux hover:bg-[#6E2B32] hover:text-[#FAF6F0] text-[11px] uppercase tracking-[0.16em] font-semibold transition flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span class="material-symbols-outlined text-[15px]">shopping_bag</span>
+                  <span>Reservar Peça</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function selectItemSize(itemId, size) {
+      itemSelectedSizes[itemId] = size;
+      renderStaggeredCatalog();
+    }
+
+    function addCatalogItemToBag(itemId) {
+      const item = LOOKBOOK_ITEMS.find(i => i.id === itemId);
+      if (!item) return;
+      addItemToBag({
+        id: item.id,
+        code: item.code,
+        name: item.name,
+        price: item.price,
+        size: itemSelectedSizes[item.id],
+        image: item.image
+      });
+    }
+
+    function addJewelryCrossSell() {
+      addItemToBag({
+        id: JEWELRY_ITEM.id,
+        code: JEWELRY_ITEM.code,
+        name: JEWELRY_ITEM.name,
+        price: JEWELRY_ITEM.price,
+        size: 'Único',
+        image: JEWELRY_ITEM.image
+      });
+      openBagDrawer();
+    }
+
+    // Gerenciamento da Sacola
+    function addItemToBag(productObj) {
+      const existingIndex = bag.findIndex(b => b.id === productObj.id && b.size === productObj.size);
+      if (existingIndex > -1) {
+        bag[existingIndex].qty += 1;
+      } else {
+        bag.push({ ...productObj, qty: 1 });
+      }
+      renderBag();
+      showToast(`${productObj.name} (${productObj.size}) adicionado à sacola`);
+    }
+
+    function changeBagQty(index, delta) {
+      bag[index].qty += delta;
+      if (bag[index].qty <= 0) {
+        bag.splice(index, 1);
+      }
+      renderBag();
+    }
+
+    function renderBag() {
+      const totalItems = bag.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('bag-counter').textContent = totalItems;
+
+      const listEl = document.getElementById('bag-items-list');
+      const controlsEl = document.getElementById('bag-checkout-controls');
+      const footerEl = document.getElementById('bag-footer');
+
+      if (bag.length === 0) {
+        listEl.innerHTML = `
+          <div class="bg-white border border-hairline rounded-2xl p-8 text-center space-y-3">
+            <span class="material-symbols-outlined text-3xl text-champagne">shopping_bag</span>
+            <h4 class="font-editorial text-2xl font-medium text-espresso">Sua sacola está vazia</h4>
+            <p class="text-xs text-taupe leading-relaxed">
+              Explore o lookbook da MV Store e selecione suas peças para gerar seu atendimento expresso no WhatsApp.
+            </p>
+            <button onclick="closeBagDrawer()" class="mt-2 px-5 py-2.5 rounded-full bg-bordeaux text-xs uppercase tracking-wider font-semibold cursor-pointer">
+              Voltar ao Lookbook
+            </button>
+          </div>
+        `;
+        controlsEl.classList.add('hidden');
+        footerEl.classList.add('hidden');
+        return;
+      }
+
+      controlsEl.classList.remove('hidden');
+      footerEl.classList.remove('hidden');
+
+      let subtotal = 0;
+
+      listEl.innerHTML = bag.map((item, idx) => {
+        const lineTotal = item.price * item.qty;
+        subtotal += lineTotal;
+        return `
+          <div class="bg-white p-3.5 rounded-xl border border-hairline flex items-center gap-3.5">
+            <img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'" class="w-16 h-20 rounded-lg object-cover surface-linen shrink-0">
+            <div class="flex-1 min-w-0">
+              <span class="font-mono-tech text-[10px] text-taupe block">${item.code}</span>
+              <h5 class="font-editorial text-lg font-semibold text-espresso leading-tight truncate">${item.name}</h5>
+              <div class="flex items-center justify-between mt-2">
+                <span class="font-mono-tech text-[11px] px-2 py-0.5 rounded surface-linen border border-hairline text-espresso">
+                  Tam: ${item.size}
+                </span>
+                <div class="flex items-center gap-2 border border-hairline rounded-full px-2 py-0.5">
+                  <button onclick="changeBagQty(${idx}, -1)" class="text-xs font-bold text-espresso px-1 cursor-pointer">−</button>
+                  <span class="font-mono-tech text-xs font-semibold">${item.qty}</span>
+                  <button onclick="changeBagQty(${idx}, 1)" class="text-xs font-bold text-espresso px-1 cursor-pointer">+</button>
+                </div>
+              </div>
+              <span class="block font-mono-tech text-xs font-semibold text-bordeaux mt-1.5">${formatBRL(lineTotal)}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const activeShipping = shippingMode === 'national' ? shippingCost : 0;
+      const paymentVal = getSelectedPayment();
+      const discount = paymentVal.includes('PIX') ? subtotal * 0.05 : 0;
+      const finalTotal = subtotal - discount + activeShipping;
+
+      document.getElementById('summary-subtotal').textContent = formatBRL(subtotal);
+      document.getElementById('summary-shipping').textContent = shippingMode === 'national' ? formatBRL(activeShipping) : 'Grátis (Moema)';
+      document.getElementById('summary-total').textContent = formatBRL(finalTotal);
+
+      updatePayloadPreview();
+    }
+
+    function setShippingOption(mode) {
+      shippingMode = mode;
+      const btnNat = document.getElementById('btn-mode-national');
+      const btnPick = document.getElementById('btn-mode-pickup');
+      const cepBlock = document.getElementById('national-cep-block');
+      const pickBlock = document.getElementById('pickup-address-block');
+
+      if (mode === 'national') {
+        btnNat.className = 'py-2.5 px-3 rounded-lg border text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer bg-bordeaux border-[#6E2B32]';
+        btnPick.className = 'py-2.5 px-3 rounded-lg border text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer surface-base border-hairline text-taupe';
+        cepBlock.classList.remove('hidden');
+        pickBlock.classList.add('hidden');
+      } else {
+        btnPick.className = 'py-2.5 px-3 rounded-lg border text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer bg-bordeaux border-[#6E2B32]';
+        btnNat.className = 'py-2.5 px-3 rounded-lg border text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer surface-base border-hairline text-taupe';
+        cepBlock.classList.add('hidden');
+        pickBlock.classList.remove('hidden');
+      }
+      renderBag();
+    }
+
+    function handleCepInput(input) {
+      let val = input.value.replace(/\D/g, '');
+      if (val.length > 5) {
+        val = val.slice(0, 5) + '-' + val.slice(5, 8);
+      }
+      input.value = val;
+      updatePayloadPreview();
+    }
+
+    function calculateShipping() {
+      const cep = document.getElementById('input-cep').value.trim();
+      const resultEl = document.getElementById('shipping-estimate-result');
+
+      if (cep.length < 8) {
+        resultEl.textContent = 'Digite um CEP válido com 8 dígitos para simular.';
+        return;
+      }
+
+      // Simulação inteligente por região do CEP
+      if (cep.startsWith('0')) {
+        shippingCost = 18.90;
+        resultEl.textContent = `Grande SP (${cep}): Entrega Expressa Motoboy — R$ 18,90 (Mesmo dia)`;
+      } else {
+        shippingCost = 32.90;
+        resultEl.textContent = `Envio Nacional Aéreo (${cep}): R$ 32,90 (2 a 4 dias úteis)`;
+      }
+      renderBag();
+    }
+
+    function getSelectedPayment() {
+      const checked = document.querySelector('input[name="payment_opt"]:checked');
+      return checked ? checked.value : 'PIX (5% de desconto)';
+    }
+
+    function buildStructuredWhatsAppMessage() {
+      let subtotal = 0;
+      const lines = bag.map((item, i) => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        return `${i + 1}. [${item.code}] ${item.name}\n   Tamanho: ${item.size} | Qtd: ${item.qty} | ${formatBRL(itemTotal)}`;
+      }).join('\n');
+
+      const payment = getSelectedPayment();
+      const discount = payment.includes('PIX') ? subtotal * 0.05 : 0;
+      const activeShipping = shippingMode === 'national' ? shippingCost : 0;
+      const total = subtotal - discount + activeShipping;
+
+      const cepVal = document.getElementById('input-cep').value.trim();
+      const deliverySummary = shippingMode === 'pickup'
+        ? 'Retirada VIP no Showroom (Rua Canário, 1360 - Moema, CEP 04521-005)'
+        : `Entrega Nacional${cepVal ? ` (CEP: ${cepVal})` : ''} — Frete: ${formatBRL(activeShipping)}`;
+
+      return [
+        `Olá *MV Store Oficial*! Gostaria de finalizar meu pedido selecionado no *Lookbook Digital*:`,
+        ``,
+        `*PEÇAS SELECIONADAS:*`,
+        lines,
+        ``,
+        `*ENTREGA:* ${deliverySummary}`,
+        `*PAGAMENTO:* ${payment}`,
+        discount > 0 ? `*DESCONTO PIX (5%):* -${formatBRL(discount)}` : null,
+        `*TOTAL ESTIMADO:* ${formatBRL(total)}`,
+        ``,
+        `Aguardo confirmação de disponibilidade para concluir!`
+      ].filter(Boolean).join('\n');
+    }
+
+    function updatePayloadPreview() {
+      const box = document.getElementById('sdr-payload-box');
+      if (box && bag.length > 0) {
+        box.textContent = buildStructuredWhatsAppMessage();
+      }
+    }
+
+    function copyPayloadToClipboard() {
+      const text = buildStructuredWhatsAppMessage();
+      const tempTextarea = document.createElement('textarea');
+      tempTextarea.value = text;
+      document.body.appendChild(tempTextarea);
+      tempTextarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempTextarea);
+      showToast('Resumo do pedido copiado para a área de transferência');
+    }
+
+    function sendOrderToWhatsApp() {
+      if (bag.length === 0) return;
+      const msg = encodeURIComponent(buildStructuredWhatsAppMessage());
+      window.open(`https://wa.me/5511943784920?text=${msg}`, '_blank', 'noopener,noreferrer');
+    }
+
+    // Controle da Gaveta Lateral
+    function openBagDrawer() {
+      const drawer = document.getElementById('bag-drawer');
+      const backdrop = document.getElementById('bag-backdrop');
+      backdrop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        backdrop.classList.remove('opacity-0');
+        drawer.classList.remove('translate-x-full');
+      });
+    }
+
+    function closeBagDrawer() {
+      const drawer = document.getElementById('bag-drawer');
+      const backdrop = document.getElementById('bag-backdrop');
+      backdrop.classList.add('opacity-0');
+      drawer.classList.add('translate-x-full');
+      setTimeout(() => {
+        backdrop.classList.add('hidden');
+      }, 300);
+    }
+
+    // Toast Notification
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('editorial-toast');
+      document.getElementById('editorial-toast-text').textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 2800);
+    }
+
+    // Inicialização
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCategoryFilters();
+      renderFeaturedSizes();
+      renderStaggeredCatalog();
+      renderBag();
+    });
+  </script>
+</body>
+</html>
